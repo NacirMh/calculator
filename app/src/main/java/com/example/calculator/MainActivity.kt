@@ -47,15 +47,17 @@ class MainActivity : AppCompatActivity() {
     fun calculateresult(){
           newNumber = binding.textView.text.toString()
           var result:Double?=null
-          when(operation){
-              "+" -> result = oldNumber.toDouble() + newNumber.toDouble()
-              "-" -> result = oldNumber.toDouble() - newNumber.toDouble()
-              "*" -> result = oldNumber.toDouble() * newNumber.toDouble()
-              "/" -> result = oldNumber.toDouble() / newNumber.toDouble()
-              "%" -> result = oldNumber.toDouble() % newNumber.toDouble()
+          if(newNumber!="" && oldNumber != "") {
+              when (operation) {
+                  "+" -> result = oldNumber.toDouble() + newNumber.toDouble()
+                  "-" -> result = oldNumber.toDouble() - newNumber.toDouble()
+                  "*" -> result = oldNumber.toDouble() * newNumber.toDouble()
+                  "/" -> result = oldNumber.toDouble() / newNumber.toDouble()
+                  "%" -> result = oldNumber.toDouble() % newNumber.toDouble()
+              }
+              binding.textView.text = result.toString()
+              newop = true
           }
-          binding.textView.text=result.toString()
-          newop=true
     }
     fun clear(){
         newop=true
